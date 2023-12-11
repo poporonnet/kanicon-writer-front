@@ -1,6 +1,9 @@
 name: build
 
-on: push
+on:
+  push:
+    paths-ignore:
+      - 'dist/**'
 
 jobs:
   build:
@@ -24,3 +27,9 @@ jobs:
       run: pnpm install
     - name: Build
       run: pnpm build
+    - name: Push Product
+      run: |
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        git commit -a -m "chore(build): auto build by github actions" || echo "no commit"
+        git push
