@@ -1,0 +1,26 @@
+name: build
+
+on: push
+
+jobs:
+  build:
+   name: build project
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: pnpm
+        cache-dependency-path: pnpm-lock.yaml
+    - name: Install Dependencies
+      run: pnpm install
+    - name: Build
+      run: pnpm build
