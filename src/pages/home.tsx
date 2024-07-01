@@ -21,7 +21,7 @@ import { isTarget } from "libs/utility";
 import { useQuery } from "hooks/useQuery";
 import RBoard from "/images/Rboard.png";
 import ESP32 from "/images/ESP32.png";
-import { Log } from "components/log";
+import { Log } from "components/Log";
 import { SourceCodeTab } from "components/SourceCodeTab";
 import { ControlButton } from "components/ControlButton";
 import { CompilerSelector } from "components/CompilerSelector";
@@ -41,7 +41,7 @@ const targets = [
   },
 ] as const satisfies readonly { title: Target; image: string }[];
 
-const defaultCompilderVersion = "3.2.0" satisfies Version;
+const defaultCompilerVersion = "3.2.0" satisfies Version;
 
 export const Home = () => {
   const [t, i18n] = useTranslation("ns1");
@@ -128,9 +128,9 @@ export const Home = () => {
 
   useEffect(() => {
     if (getVersionsStatus != "success") return;
-    if (!versions.includes(defaultCompilderVersion)) return;
+    if (!versions.includes(defaultCompilerVersion)) return;
 
-    compile(defaultCompilderVersion);
+    compile(defaultCompilerVersion);
   }, [compile, versions, getVersionsStatus]);
 
   useEffect(() => {

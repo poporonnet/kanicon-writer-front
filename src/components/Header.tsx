@@ -84,11 +84,12 @@ export const Header = () => {
           }}
         >
           <Link
-            href={import.meta.env.VITE_BASE_URL}
+            href={import.meta.env.VITE_REFERENCE_URL}
             variant="body1"
             underline="none"
             color="inherit"
             fontFamily="'M PLUS Rounded 1c', sans-serif"
+            target="_blank"
             sx={{
               ":hover": { color: "inherit" },
             }}
